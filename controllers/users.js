@@ -110,7 +110,7 @@ module.exports = {
                         // Issue token
                         const payload = { cedula };
                         const token = jwt.sign(payload, secret, {
-                        expiresIn: '1h'
+                        expiresIn: '3h'
                         });
                         console.log(token);
                         //res.cookie('token', token, { httpOnly: true }).sendStatus(200);
@@ -128,5 +128,16 @@ module.exports = {
     },
     checkToken: function(req,resp){
         resp.sendStatus(200); 
+    },
+    getUserbyId: async (req,resp)=>{
+        try {
+            const {id_user} = req.body;
+            console.log("id_user: "+id_user);
+            const users = await userModel.find({_id:id_user});
+            resp.send(users[0]);
+            console.log(users[0]);
+        } catch (error) {
+            resp.sendStatus(500).send({msg:"ocurrio un error en el servidor"});
+        }
     }
 }

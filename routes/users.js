@@ -12,4 +12,5 @@ module.exports = (app) =>{
     app.post("/deleteUser",withAuth,userController.deleteUser);
     app.post("/authenticateUser",userController.authenticateUser);
     app.get("/checkToken",withAuth,userController.checkToken);
+    app.post("/getUserbyId",userController.getUserbyId);
 }
