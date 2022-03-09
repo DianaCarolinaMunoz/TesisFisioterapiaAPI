@@ -14,6 +14,28 @@ module.exports = {
             const {id_user} = req.body;
             console.log(id_user);
             const ejercicios = await ejercicioModel.find({id_user:id_user});
+            //agrego el nombre del jercicio anterior
+           //  console.log(ejercicios);
+            
+           /* ejercicios.forEach((element,key) => {
+                element.forEach((ele) => {
+                 console.log("element -> "+ ele);
+                /*if(element['type'] == "cicloActivo"){
+                    ejercicioModel.findOne({ element['id_user'] },function (err, ejercicioAnterior) {
+                    
+                    if (err) {
+                        console.error(err);
+                        res.status(500).json({
+                        error: 'Internal error please try again'
+                        });
+                    }else{
+                        element['anterior'] = ejercicioAnterior.nombre;
+                    }
+                });
+                } 
+                 });
+            });*/
+
             resp.send(ejercicios);
         } catch (error) {
             resp.status(500).send({msg:"ocurrio un error en el servidor"});

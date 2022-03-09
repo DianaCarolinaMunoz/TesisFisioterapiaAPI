@@ -8,6 +8,7 @@ const userScheme = new mongo.Schema({
     nombre: {type:String,},
     ciudad: {type:String},
     edad: {type:Number},
+    sexo: {type:String},
     peso: {type:Number},
     altura:{type:Number},
     tel:{type:Number},

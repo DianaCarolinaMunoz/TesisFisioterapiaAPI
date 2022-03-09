@@ -10,6 +10,7 @@ const ejercicioScheme = new mongo.Schema({
     apnea: {type:String},
     fraccion: {type:String},
     flujo: {type:String},
+    last_update: {type:String},
     id_user:{type:String}
 });
 
