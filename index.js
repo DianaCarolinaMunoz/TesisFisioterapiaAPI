@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 app.use(cors({
     allowedOrigins: [
         'http://localhost:3000',
+        'https://d2zqc0bdtc11lv.cloudfront.net',
     ],
     headers: [
         'X-HTTP-Method-Override', 'Content-Type', 'Accept','X-Access-Token','*'
