@@ -13,7 +13,10 @@ app.use(bodyParser.json());
 app.use(cors({
     allowedOrigins: [
         'http://localhost:3000',
-        'https://d2zqc0bdtc11lv.cloudfront.net',
+        'http://localhost:3001',
+        'http://localhost:5001',
+        'https://d2yaaz8bde1qj3.cloudfront.net/',
+        'http://d2yaaz8bde1qj3.cloudfront.net/',	
     ],
     headers: [
         'X-HTTP-Method-Override', 'Content-Type', 'Accept','X-Access-Token','*'
@@ -32,3 +35,6 @@ const routeEjercicios = require("./routes/ejercicios")(app);
 
 
 mongo.conectar(app);
+
+const port = 5001;
+app.listen(port, () => { console.log(port) })
