@@ -32,6 +32,7 @@ const routeCultivos = require("./routes/cultivos")(app);
 const routeRecomendaciones = require("./routes/recomendaciones")(app);
 const routeNovedades = require("./routes/novedades")(app);
 const routeEjercicios = require("./routes/ejercicios")(app);
+const routeResults = require("./routes/results")(app);
 
 
 mongo.conectar(app);
