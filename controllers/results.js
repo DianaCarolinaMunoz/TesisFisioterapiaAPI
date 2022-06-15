@@ -42,7 +42,42 @@ module.exports = {
             resp.send(results);
         } catch (error) {
             console.log(error);
-            resp.status(500).send({msg:"ocurrio un error en el servidor"});
+            resp.senStatus(500).send({msg:"ocurrio un error en el servidor"});
+        }
+    },
+    allResultsByEjercicio: async (req,resp)=>{
+        try {
+            const {id} = req.body;
+            console.log(id);
+            //const ejercicio = await ejercicioModel.findOne({id_user:id}).exec();
+            //console.log(ejercicio);
+            const results = await resultModel.find({_id:id});
+            //agrego el nombre del jercicio anterior
+           
+            
+           /* ejercicios.forEach((element,key) => {
+                element.forEach((ele) => {
+                 console.log("element -> "+ ele);
+                /*if(element['type'] == "cicloActivo"){
+                    ejercicioModel.findOne({ element['id_user'] },function (err, ejercicioAnterior) {
+                    
+                    if (err) {
+                        console.error(err);
+                        res.status(500).json({
+                        error: 'Internal error please try again'
+                        }); 
+                    }else{
+                        element['anterior'] = ejercicioAnterior.nombre;
+                    }
+                });
+                } 
+                 });
+            });*/
+
+            resp.send(results);
+        } catch (error) {
+            console.log(error);
+            resp.sendStatus(500).send({msg:"ocurrio un error en el servidor"});
         }
     },
     createResult:async (req,resp)=>{
