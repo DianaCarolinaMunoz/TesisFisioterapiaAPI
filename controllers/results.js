@@ -16,7 +16,7 @@ module.exports = {
             console.log(id);
             const ejercicio = await ejercicioModel.findOne({id_user:id}).exec();
             console.log(ejercicio);
-            const results = await resultModel.find({_id:ejercicio._id});
+            const results = await resultModel.find({id_ejercicio:ejercicio._id});
             //agrego el nombre del jercicio anterior
            
             
@@ -47,11 +47,11 @@ module.exports = {
     },
     allResultsByEjercicio: async (req,resp)=>{
         try {
-            const {id} = req.body;
-            console.log(id);
+            const {id_ejercicio} = req.body;
+            console.log(id_ejercicio);
             //const ejercicio = await ejercicioModel.findOne({id_user:id}).exec();
             //console.log(ejercicio);
-            const results = await resultModel.find({_id:id});
+            const results = await resultModel.find({id_ejercicio:id_ejercicio});
             //agrego el nombre del jercicio anterior
            
             
